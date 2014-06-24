@@ -14,6 +14,9 @@ namespace Harris.Web {
       bundles.Add(new ScriptBundle("~/bundles/holder").Include(
                   "~/Scripts/holder.js"));
 
+      bundles.Add(new ScriptBundle("~/bundles/harris").Include(
+                  "~/Scripts/harris.js"));
+
       bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                   "~/Scripts/jquery-ui-{version}.js"));
 

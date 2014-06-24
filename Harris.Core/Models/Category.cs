@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Harris.Core.ViewModels {
+namespace Harris.Core.Models {
   public class Category {
     public int Id { get; set; }
     public string Name { get; set; }
 
-    public IEnumerable<Capability> Capabilities { get; set; }
+    public ICollection<Capability> Capabilities { get; set; }
   }
 
   public class Capability {

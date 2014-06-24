@@ -1,28 +1,116 @@
-﻿@model IEnumerable<Harris.Core.ViewModels.Category>
+﻿@model IEnumerable<Harris.Core.Models.Category>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "PAS: Capabilities Matrix";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<style type="text/css">
+    div.project h2 {
+        text-decoration: underline;
+    }
+
+    div.project.status-active {
+        background-color: #dff0d8;
+        border-color: #d6e9c6;
+    }
+
+    div.project.status-inactive {
+        background-color: #d9edf7;
+        border-color: #bce8f1;
+    }
+
+    div.project.status-warning {
+        background-color: #fcf8e3;
+        border-color: #faebcc;
+    }
+
+
+    div.project.status-danger {
+        background-color: #f2dede;
+        border-color: #ebccd1;
+    }
+
+    div.project ul.details {
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+    }
+
+        div.project ul.details label {
+            display: inline-block;
+            width: 150px;
+            color: gray;
+        }
+
+        div.project ul.details span {
+            display: inline-block;
+            width: 150px;
+            color: black;
+            font-weight: bold;
+        }
+
+    div.project fieldset {
+        display: inline-block;
+        border: 1px solid gray;
+        width: 200px;
+        background-color: rgba(232, 164, 12, 0.28);
+    }
+
+        div.project fieldset legend {
+            display: inline;
+            width: auto;
+            border-bottom: none;
+            margin: 0px 0px 0px 10px;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        div.project fieldset span.result {
+            display: block;
+            width: 50px;
+            font-size: 2em;
+            font-weight: bold;
+            margin: 0px auto;
+        }
+
+    .capabilites-matrix-result {
+    }
+
+    span.project-timeline {
+        display: inline-block;
+        width: 200px;
+    }
+
+        span.project-timeline label {
+            margin-right: 20px;
+        }
+
+    div.project-timeline-container {
+        padding: 20px 0px;
+        font-size: 1.1em;
+    }
+</style>
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-4 col-md-3 sidebar">
+            @for (int i = 0; i < Model.Count(); i++) {
+                var category = Model.ElementAt(i);
+                <div class="panel-group" id="accordion-@i">
 
-            <div class="panel-group" id="accordion">
-                @foreach (var category in Model) {
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse-@category.Id">@category.Name
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse-@i">@category.Name
                                 </a>
                             </h4>
                         </div>
-                        <div id="collapse-@category.Id" class="panel-collapse collapse in">
+                        <div id="collapse-@i" class="panel-collapse collapse in">
                             <div class="panel-body">
                                 <ul class="nav nav-sidebar">
                                     @foreach (var capability in category.Capabilities) {
                                         <li>
                                             <div class="category">
-                                                <input type="checkbox" data-id="@capability.Id" />
+                                                <input type="checkbox" class="capability" data-id="@capability.Id" />
                                                 @capability.Name
                                             </div>
                                         </li>
@@ -31,167 +119,237 @@
                             </div>
                         </div>
                     </div>
-                }
-            </div>
+
+                </div>}
         </div>
         <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
-            <h1 class="page-header">Dashboard</h1>
+            <div>
+                <div class="text-right">
+                    <a class="btn btn-success">Action</a>
+                </div>
+                <hr />
+                <div class="row project status-active">
+                    <div class="col-md-4">
+                        <h2>NMCI CoSC</h2>
+                        <ul class="details">
+                            <li>
+                                <label>Sub: </label>
+                                <span>Yes</span></li>
+                            <li>
+                                <label>Customer: </label>
+                                <span>HP</span></li>
+                            <li>
+                                <label>Contract #: </label>
+                                <span>0123456</span></li>
+                            <li>
+                                <label>Task #: </label>
+                                <span>0123456</span></li>
+                            <li>
+                                <label>Contract Vehicle: </label>
+                                <span>GSA</span></li>
+                            <li>
+                                <label>Contract Manager: </label>
+                                <span>Joe Smith</span></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="project-timeline-container">
+                                <span class="project-timeline">
+                                    <label>Start Date:</label>
+                                    <span>01/01/2001</span>
+                                </span>
+                                <span class="project-timeline">
+                                    <label>End Date:</label>
+                                    <span>01/01/2001</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row capabilites-matrix-result">
+                            <fieldset>
+                                <legend>Category Match %</legend>
+                                <span class="result">90%</span>
+                            </fieldset>
+                            <fieldset>
+                                <legend>CPAR Score</legend>
+                                <span class="result">9</span>
+                            </fieldset>
+                            <fieldset>
+                                <legend>Best Match %
+                                </legend>
+                                <span class="result">90%</span>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+                <hr />
+                <div class="row project status-inactive">
+                    <div class="col-md-4">
+                        <h2>FAA FTI</h2>
+                        <ul class="details">
+                            <li>
+                                <label>Sub: </label>
+                                <span>Yes</span></li>
+                            <li>
+                                <label>Customer: </label>
+                                <span>HP</span></li>
+                            <li>
+                                <label>Contract #: </label>
+                                <span>0123456</span></li>
+                            <li>
+                                <label>Task #: </label>
+                                <span>0123456</span></li>
+                            <li>
+                                <label>Contract Vehicle: </label>
+                                <span>GSA</span></li>
+                            <li>
+                                <label>Contract Manager: </label>
+                                <span>Joe Smith</span></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="project-timeline-container">
+                                <span class="project-timeline">
+                                    <label>Start Date:</label>
+                                    <span>01/01/2001</span>
+                                </span>
+                                <span class="project-timeline">
+                                    <label>End Date:</label>
+                                    <span>01/01/2001</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row capabilites-matrix-result">
+                            <fieldset>
+                                <legend>Category Match %</legend>
+                                <span class="result">90%</span>
+                            </fieldset>
+                            <fieldset>
+                                <legend>CPAR Score</legend>
+                                <span class="result">9</span>
+                            </fieldset>
+                            <fieldset>
+                                <legend>Best Match %
+                                </legend>
+                                <span class="result">90%</span>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="row placeholders">
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-                    <h4>Label</h4>
-                    <span class="text-muted">Something else</span>
+                <hr />
+                <div class="row project status-warning">
+                    <div class="col-md-4">
+                        <h2>NRO Patriot</h2>
+                        <ul class="details">
+                            <li>
+                                <label>Sub: </label>
+                                <span>Yes</span></li>
+                            <li>
+                                <label>Customer: </label>
+                                <span>HP</span></li>
+                            <li>
+                                <label>Contract #: </label>
+                                <span>0123456</span></li>
+                            <li>
+                                <label>Task #: </label>
+                                <span>0123456</span></li>
+                            <li>
+                                <label>Contract Vehicle: </label>
+                                <span>GSA</span></li>
+                            <li>
+                                <label>Contract Manager: </label>
+                                <span>Joe Smith</span></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="project-timeline-container">
+                                <span class="project-timeline">
+                                    <label>Start Date:</label>
+                                    <span>01/01/2001</span>
+                                </span>
+                                <span class="project-timeline">
+                                    <label>End Date:</label>
+                                    <span>01/01/2001</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row capabilites-matrix-result">
+                            <fieldset>
+                                <legend>Category Match %</legend>
+                                <span class="result">90%</span>
+                            </fieldset>
+                            <fieldset>
+                                <legend>CPAR Score</legend>
+                                <span class="result">9</span>
+                            </fieldset>
+                            <fieldset>
+                                <legend>Best Match %
+                                </legend>
+                                <span class="result">90%</span>
+                            </fieldset>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-                    <h4>Label</h4>
-                    <span class="text-muted">Something else</span>
-                </div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-                    <h4>Label</h4>
-                    <span class="text-muted">Something else</span>
-                </div>
-                <div class="col-xs-6 col-sm-3 placeholder">
-                    <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-                    <h4>Label</h4>
-                    <span class="text-muted">Something else</span>
-                </div>
-            </div>
 
-            <h2 class="sub-header">Section title</h2>
-            <div class="table-responsive">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Header</th>
-                            <th>Header</th>
-                            <th>Header</th>
-                            <th>Header</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1,001</td>
-                            <td>Lorem</td>
-                            <td>ipsum</td>
-                            <td>dolor</td>
-                            <td>sit</td>
-                        </tr>
-                        <tr>
-                            <td>1,002</td>
-                            <td>amet</td>
-                            <td>consectetur</td>
-                            <td>adipiscing</td>
-                            <td>elit</td>
-                        </tr>
-                        <tr>
-                            <td>1,003</td>
-                            <td>Integer</td>
-                            <td>nec</td>
-                            <td>odio</td>
-                            <td>Praesent</td>
-                        </tr>
-                        <tr>
-                            <td>1,003</td>
-                            <td>libero</td>
-                            <td>Sed</td>
-                            <td>cursus</td>
-                            <td>ante</td>
-                        </tr>
-                        <tr>
-                            <td>1,004</td>
-                            <td>dapibus</td>
-                            <td>diam</td>
-                            <td>Sed</td>
-                            <td>nisi</td>
-                        </tr>
-                        <tr>
-                            <td>1,005</td>
-                            <td>Nulla</td>
-                            <td>quis</td>
-                            <td>sem</td>
-                            <td>at</td>
-                        </tr>
-                        <tr>
-                            <td>1,006</td>
-                            <td>nibh</td>
-                            <td>elementum</td>
-                            <td>imperdiet</td>
-                            <td>Duis</td>
-                        </tr>
-                        <tr>
-                            <td>1,007</td>
-                            <td>sagittis</td>
-                            <td>ipsum</td>
-                            <td>Praesent</td>
-                            <td>mauris</td>
-                        </tr>
-                        <tr>
-                            <td>1,008</td>
-                            <td>Fusce</td>
-                            <td>nec</td>
-                            <td>tellus</td>
-                            <td>sed</td>
-                        </tr>
-                        <tr>
-                            <td>1,009</td>
-                            <td>augue</td>
-                            <td>semper</td>
-                            <td>porta</td>
-                            <td>Mauris</td>
-                        </tr>
-                        <tr>
-                            <td>1,010</td>
-                            <td>massa</td>
-                            <td>Vestibulum</td>
-                            <td>lacinia</td>
-                            <td>arcu</td>
-                        </tr>
-                        <tr>
-                            <td>1,011</td>
-                            <td>eget</td>
-                            <td>nulla</td>
-                            <td>Class</td>
-                            <td>aptent</td>
-                        </tr>
-                        <tr>
-                            <td>1,012</td>
-                            <td>taciti</td>
-                            <td>sociosqu</td>
-                            <td>ad</td>
-                            <td>litora</td>
-                        </tr>
-                        <tr>
-                            <td>1,013</td>
-                            <td>torquent</td>
-                            <td>per</td>
-                            <td>conubia</td>
-                            <td>nostra</td>
-                        </tr>
-                        <tr>
-                            <td>1,014</td>
-                            <td>per</td>
-                            <td>inceptos</td>
-                            <td>himenaeos</td>
-                            <td>Curabitur</td>
-                        </tr>
-                        <tr>
-                            <td>1,015</td>
-                            <td>sodales</td>
-                            <td>ligula</td>
-                            <td>in</td>
-                            <td>libero</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <hr />
+                <div class="row project status-danger">
+                    <div class="col-md-4">
+                        <h2>CYA Dreaming</h2>
+                        <ul class="details">
+                            <li>
+                                <label>Sub: </label>
+                                <span>Yes</span></li>
+                            <li>
+                                <label>Customer: </label>
+                                <span>HP</span></li>
+                            <li>
+                                <label>Contract #: </label>
+                                <span>0123456</span></li>
+                            <li>
+                                <label>Task #: </label>
+                                <span>0123456</span></li>
+                            <li>
+                                <label>Contract Vehicle: </label>
+                                <span>GSA</span></li>
+                            <li>
+                                <label>Contract Manager: </label>
+                                <span>Joe Smith</span></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="row">
+                            <div class="project-timeline-container">
+                                <span class="project-timeline">
+                                    <label>Start Date:</label>
+                                    <span>01/01/2001</span>
+                                </span>
+                                <span class="project-timeline">
+                                    <label>End Date:</label>
+                                    <span>01/01/2001</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row capabilites-matrix-result">
+                            <fieldset>
+                                <legend>Category Match %</legend>
+                                <span class="result">90%</span>
+                            </fieldset>
+                            <fieldset>
+                                <legend>CPAR Score</legend>
+                                <span class="result">9</span>
+                            </fieldset>
+                            <fieldset>
+                                <legend>Best Match %
+                                </legend>
+                                <span class="result">90%</span>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-<script type="text/javascript">
-    $('.collapse').collapse()
-</script>
