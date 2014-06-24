@@ -46,7 +46,7 @@ namespace Harris.Web.Controllers {
           });
         }
       }
-      return Json(list.OrderBy(c => c.BestMatch), JsonRequestBehavior.AllowGet);
+      return Json(list.OrderByDescending(c => c.BestMatch), JsonRequestBehavior.AllowGet);
     }
   }
 }
