@@ -1,13 +1,19 @@
 ﻿var Harris = window.Harris || {};
 
 Harris.updateCapabilities = function (item) {
+    var $matrixContainer = $('#matrix-result-container');
+    $matrixContainer.html('');
     var xhr = $.ajax({
         type: 'POST',
         url: '/home/UpdateCapabilitiesMatrix',
         contentType: 'application/json',
         data: JSON.stringify({ item: item }),
         success: function (data) {
-            //console.log(data);
+            $.each(data, function (id, matrix) {
+                var template = $('#matrix-result-template').html();
+                var matrixData = Mustache.render(template, matrix);
+                $matrixContainer.append(matrixData);
+            });
         }
     });
 };

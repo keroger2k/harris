@@ -4,93 +4,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<style type="text/css">
-    div.project h2 {
-        text-decoration: underline;
-    }
-
-    div.project.status-active {
-        background-color: #dff0d8;
-        border-color: #d6e9c6;
-    }
-
-    div.project.status-inactive {
-        background-color: #d9edf7;
-        border-color: #bce8f1;
-    }
-
-    div.project.status-warning {
-        background-color: #fcf8e3;
-        border-color: #faebcc;
-    }
-
-
-    div.project.status-danger {
-        background-color: #f2dede;
-        border-color: #ebccd1;
-    }
-
-    div.project ul.details {
-        list-style: none;
-        margin: 0px;
-        padding: 0px;
-    }
-
-        div.project ul.details label {
-            display: inline-block;
-            width: 150px;
-            color: gray;
-        }
-
-        div.project ul.details span {
-            display: inline-block;
-            width: 150px;
-            color: black;
-            font-weight: bold;
-        }
-
-    div.project fieldset {
-        display: inline-block;
-        border: 1px solid gray;
-        width: 200px;
-        background-color: rgba(232, 164, 12, 0.28);
-        color: #B33120;
-    }
-
-        div.project fieldset legend {
-            display: inline;
-            width: auto;
-            border-bottom: none;
-            margin: 0px 0px 0px 10px;
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-
-        div.project fieldset span.result {
-            display: block;
-            width: 50px;
-            font-size: 2em;
-            font-weight: bold;
-            margin: 0px auto;
-        }
-
-    .capabilites-matrix-result {
-    }
-
-    span.project-timeline {
-        display: inline-block;
-        width: 200px;
-    }
-
-        span.project-timeline label {
-            margin-right: 20px;
-        }
-
-    div.project-timeline-container {
-        padding: 20px 0px;
-        font-size: 1.1em;
-    }
-</style>
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-4 col-md-3 sidebar">
@@ -129,228 +42,67 @@
                     <a class="btn btn-success">Action</a>
                 </div>
                 <hr />
-                <div class="row project status-active">
-                    <div class="col-md-4">
-                        <h2>NMCI CoSC</h2>
-                        <ul class="details">
-                            <li>
-                                <label>Sub: </label>
-                                <span>Yes</span></li>
-                            <li>
-                                <label>Customer: </label>
-                                <span>HP</span></li>
-                            <li>
-                                <label>Contract #: </label>
-                                <span>0123456</span></li>
-                            <li>
-                                <label>Task #: </label>
-                                <span>0123456</span></li>
-                            <li>
-                                <label>Contract Vehicle: </label>
-                                <span>GSA</span></li>
-                            <li>
-                                <label>Contract Manager: </label>
-                                <span>Joe Smith</span></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="row">
-                            <div class="project-timeline-container">
-                                <span class="project-timeline">
-                                    <label>Start Date:</label>
-                                    <span>01/01/2001</span>
-                                </span>
-                                <span class="project-timeline">
-                                    <label>End Date:</label>
-                                    <span>01/01/2001</span>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="row capabilites-matrix-result">
-                            <fieldset>
-                                <legend>Category Match %</legend>
-                                <span class="result">90%</span>
-                            </fieldset>
-                            <fieldset>
-                                <legend>CPAR Score</legend>
-                                <span class="result">9</span>
-                            </fieldset>
-                            <fieldset>
-                                <legend>Best Match %
-                                </legend>
-                                <span class="result">90%</span>
-                            </fieldset>
-                        </div>
-                    </div>
-                </div>
-                <hr />
-                <div class="row project status-inactive">
-                    <div class="col-md-4">
-                        <h2>FAA FTI</h2>
-                        <ul class="details">
-                            <li>
-                                <label>Sub: </label>
-                                <span>Yes</span></li>
-                            <li>
-                                <label>Customer: </label>
-                                <span>HP</span></li>
-                            <li>
-                                <label>Contract #: </label>
-                                <span>0123456</span></li>
-                            <li>
-                                <label>Task #: </label>
-                                <span>0123456</span></li>
-                            <li>
-                                <label>Contract Vehicle: </label>
-                                <span>GSA</span></li>
-                            <li>
-                                <label>Contract Manager: </label>
-                                <span>Joe Smith</span></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="row">
-                            <div class="project-timeline-container">
-                                <span class="project-timeline">
-                                    <label>Start Date:</label>
-                                    <span>01/01/2001</span>
-                                </span>
-                                <span class="project-timeline">
-                                    <label>End Date:</label>
-                                    <span>01/01/2001</span>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="row capabilites-matrix-result">
-                            <fieldset>
-                                <legend>Category Match %</legend>
-                                <span class="result">90%</span>
-                            </fieldset>
-                            <fieldset>
-                                <legend>CPAR Score</legend>
-                                <span class="result">9</span>
-                            </fieldset>
-                            <fieldset>
-                                <legend>Best Match %
-                                </legend>
-                                <span class="result">90%</span>
-                            </fieldset>
-                        </div>
-                    </div>
-                </div>
-
-                <hr />
-                <div class="row project status-warning">
-                    <div class="col-md-4">
-                        <h2>NRO Patriot</h2>
-                        <ul class="details">
-                            <li>
-                                <label>Sub: </label>
-                                <span>Yes</span></li>
-                            <li>
-                                <label>Customer: </label>
-                                <span>HP</span></li>
-                            <li>
-                                <label>Contract #: </label>
-                                <span>0123456</span></li>
-                            <li>
-                                <label>Task #: </label>
-                                <span>0123456</span></li>
-                            <li>
-                                <label>Contract Vehicle: </label>
-                                <span>GSA</span></li>
-                            <li>
-                                <label>Contract Manager: </label>
-                                <span>Joe Smith</span></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="row">
-                            <div class="project-timeline-container">
-                                <span class="project-timeline">
-                                    <label>Start Date:</label>
-                                    <span>01/01/2001</span>
-                                </span>
-                                <span class="project-timeline">
-                                    <label>End Date:</label>
-                                    <span>01/01/2001</span>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="row capabilites-matrix-result">
-                            <fieldset>
-                                <legend>Category Match %</legend>
-                                <span class="result">90%</span>
-                            </fieldset>
-                            <fieldset>
-                                <legend>CPAR Score</legend>
-                                <span class="result">9</span>
-                            </fieldset>
-                            <fieldset>
-                                <legend>Best Match %
-                                </legend>
-                                <span class="result">90%</span>
-                            </fieldset>
-                        </div>
-                    </div>
-                </div>
-
-                <hr />
-                <div class="row project status-danger">
-                    <div class="col-md-4">
-                        <h2>CYA Dreaming</h2>
-                        <ul class="details">
-                            <li>
-                                <label>Sub: </label>
-                                <span>Yes</span></li>
-                            <li>
-                                <label>Customer: </label>
-                                <span>HP</span></li>
-                            <li>
-                                <label>Contract #: </label>
-                                <span>0123456</span></li>
-                            <li>
-                                <label>Task #: </label>
-                                <span>0123456</span></li>
-                            <li>
-                                <label>Contract Vehicle: </label>
-                                <span>GSA</span></li>
-                            <li>
-                                <label>Contract Manager: </label>
-                                <span>Joe Smith</span></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="row">
-                            <div class="project-timeline-container">
-                                <span class="project-timeline">
-                                    <label>Start Date:</label>
-                                    <span>01/01/2001</span>
-                                </span>
-                                <span class="project-timeline">
-                                    <label>End Date:</label>
-                                    <span>01/01/2001</span>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="row capabilites-matrix-result">
-                            <fieldset>
-                                <legend>Category Match %</legend>
-                                <span class="result">90%</span>
-                            </fieldset>
-                            <fieldset>
-                                <legend>CPAR Score</legend>
-                                <span class="result">9</span>
-                            </fieldset>
-                            <fieldset>
-                                <legend>Best Match %
-                                </legend>
-                                <span class="result">90%</span>
-                            </fieldset>
-                        </div>
-                    </div>
+                <div id="matrix-result-container">
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script type="text/template" id="matrix-result-template">
+    <div class="row project status-active">
+        <div class="col-md-4">
+            <h2>{{Contract.Name}}</h2>
+            <ul class="details">
+                <li>
+                    <label>Sub: </label>
+                    <span>{{Contract.Prime}}</span></li>
+                <li>
+                    <label>Customer: </label>
+                    <span>{{Contract.Customer.Name}}</span></li>
+                <li>
+                    <label>Contract #: </label>
+                    <span>{{Contract.ContractNumber}}</span></li>
+                <li>
+                    <label>Task #: </label>
+                    <span>{{Contract.TaskOrder}}</span></li>
+                <li>
+                    <label>Contract Vehicle: </label>
+                    <span>{{Contract.ContractVehicle}}</span></li>
+                <li>
+                    <label>Contract Manager: </label>
+                    <span>{{Contract.ContractManager.Name}}</span></li>
+            </ul>
+        </div>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="project-timeline-container">
+                    <span class="project-timeline">
+                        <label>Start Date:</label>
+                        <span>{{StartDate}}</span>
+                    </span>
+                    <span class="project-timeline">
+                        <label>End Date:</label>
+                        <span>{{EndDate}}</span>
+                    </span>
+                </div>
+            </div>
+            <div class="row capabilites-matrix-result">
+                <fieldset>
+                    <legend>Category Match %</legend>
+                    <span class="result">{{CategoryMatch}}</span>
+                </fieldset>
+                <fieldset>
+                    <legend>CPAR Score</legend>
+                    <span class="result">{{CPARScore}}</span>
+                </fieldset>
+                <fieldset>
+                    <legend>Best Match %
+                    </legend>
+                    <span class="result">{{BestMatch}}</span>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+    <hr />
+</script>

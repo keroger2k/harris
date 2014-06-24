@@ -1,3 +1,89 @@
 ﻿.nav-sidebar > li > .category {
     margin-left: 20px;
 }
+
+div.project h2 {
+    text-decoration: underline;
+}
+
+div.project.status-active {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+div.project.status-inactive {
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+
+div.project.status-warning {
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+}
+
+
+div.project.status-danger {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+div.project ul.details {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+    div.project ul.details label {
+        display: inline-block;
+        width: 150px;
+        color: gray;
+    }
+
+    div.project ul.details span {
+        display: inline-block;
+        width: 150px;
+        color: black;
+        font-weight: bold;
+    }
+
+div.project fieldset {
+    display: inline-block;
+    border: 1px solid gray;
+    width: 200px;
+    background-color: rgba(232, 164, 12, 0.28);
+    color: #B33120;
+}
+
+    div.project fieldset legend {
+        display: inline;
+        width: auto;
+        border-bottom: none;
+        margin: 0px 0px 0px 10px;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+    div.project fieldset span.result {
+        display: block;
+        width: 50px;
+        font-size: 2em;
+        font-weight: bold;
+        margin: 0px auto;
+    }
+
+.capabilites-matrix-result {
+}
+
+span.project-timeline {
+    display: inline-block;
+    width: 200px;
+}
+
+    span.project-timeline label {
+        margin-right: 20px;
+    }
+
+div.project-timeline-container {
+    padding: 20px 0px;
+    font-size: 1.1em;
+}

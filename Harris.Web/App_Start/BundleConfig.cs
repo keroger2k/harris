@@ -15,6 +15,7 @@ namespace Harris.Web {
                   "~/Scripts/holder.js"));
 
       bundles.Add(new ScriptBundle("~/bundles/harris").Include(
+                  "~/Scripts/mustache.js",
                   "~/Scripts/harris.js"));
 
       bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
