@@ -20,12 +20,12 @@ namespace Harris.Core.Models {
     }
 
     public enum Rating {
-      EXCEPTIONAL,
-      VERY_GOOD,
-      SATISFACTORY,
-      MARGINAL,
-      UNSATISFACTORY,
-      NA
+      EXCEPTIONAL = 5,
+      VERY_GOOD = 4,
+      SATISFACTORY = 3,
+      MARGINAL = 2,
+      UNSATISFACTORY = 1,
+      NA = 0
     }
   }
 }

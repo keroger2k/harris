@@ -31,7 +31,7 @@ namespace Harris.Core.Data {
                new CPAR { Name = CPAR.Criteria.QUALITY_OF_PRODUCT_SERVICE, Score = CPAR.Rating.EXCEPTIONAL },
                new CPAR { Name = CPAR.Criteria.SCHEDULE, Score = CPAR.Rating.EXCEPTIONAL },
                new CPAR { Name = CPAR.Criteria.COST_CONTROL, Score = CPAR.Rating.EXCEPTIONAL },
-               new CPAR { Name = CPAR.Criteria.BUSINESS_RELATIONS, Score = CPAR.Rating.EXCEPTIONAL },
+               new CPAR { Name = CPAR.Criteria.BUSINESS_RELATIONS, Score = CPAR.Rating.VERY_GOOD },
                new CPAR { Name = CPAR.Criteria.MANAGEMENT_OF_KEY_PERSONNEL, Score = CPAR.Rating.EXCEPTIONAL },
                new CPAR { Name = CPAR.Criteria.UTILIZATION_OF_SMALL_BUSINESS, Score = CPAR.Rating.EXCEPTIONAL },
              },

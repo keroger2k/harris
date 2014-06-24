@@ -29,22 +29,24 @@ namespace Harris.Web.Controllers {
 
       //Get a single company; Most likely Harris.
       var company = _companyRepo.Get();
+      var list = new List<MatrixViewModel>();
 
       //all companies with capabilities
-      var results = company.Contracts.Where(e => e.Capabilities.Any(c => item.Select(d => d.Id).Contains(c.Id)));
-      var list = new List<MatrixViewModel>();
-      foreach (var c in results) {
-        var r = new MatrixCalculator(c, item);
-        list.Add(new MatrixViewModel {
-          Contract = c,
-          CategoryMatch = r.GetCategoryMatch(),
-          CPARScore = r.GetCPAR(),
-          BestMatch = r.GetBestMatch(),
-          StartDate = r.Contract.Start.ToString("MM/dd/yyyy"),
-          EndDate = r.Contract.End.ToString("MM/dd/yyyy"),
-        });
+      if (item != null) {
+        var results = company.Contracts.Where(e => e.Capabilities.Any(c => item.Select(d => d.Id).Contains(c.Id)));
+        foreach (var c in results) {
+          var r = new MatrixCalculator(c, item);
+          list.Add(new MatrixViewModel {
+            Contract = c,
+            CategoryMatch = r.GetCategoryMatch(),
+            CPARScore = r.GetCPAR(),
+            BestMatch = r.GetBestMatch(),
+            StartDate = r.Contract.Start.ToString("MM/dd/yyyy"),
+            EndDate = r.Contract.End.ToString("MM/dd/yyyy"),
+          });
+        }
       }
-      return Json(list, JsonRequestBehavior.AllowGet);
+      return Json(list.OrderBy(c => c.BestMatch), JsonRequestBehavior.AllowGet);
     }
   }
 }

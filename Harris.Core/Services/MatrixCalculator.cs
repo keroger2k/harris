@@ -21,12 +21,14 @@ namespace Harris.Core.Services {
       return Math.Round((matchingCapabilities / (double)_capabilities.Count()) * 100, 2);
     }
 
-    public int GetCPAR() {
-      return 0;
+    public double GetCPAR() {
+      var totalScore = this.Contract.CPARs.Sum(c => (int)c.Score);
+      var totalPossible = this.Contract.CPARs.Count() * 5;
+      return Math.Round((totalScore / (double)totalPossible) * 100, 2);
     }
 
     public double GetBestMatch() {
-      return 0f;
+      return Math.Round((GetCategoryMatch() + GetCPAR())/ 2, 2);
     }
 
   }
