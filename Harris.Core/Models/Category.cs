@@ -6,16 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Harris.Core.Models {
-  public class Category {
+  public class CapabilityCategory {
     public int Id { get; set; }
     public string Name { get; set; }
 
     public ICollection<Capability> Capabilities { get; set; }
   }
-
-  public class Capability {
-    public int Id { get; set; }
-    public string Name { get; set; }
-  }
-
 }

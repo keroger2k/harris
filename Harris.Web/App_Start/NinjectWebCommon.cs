@@ -40,6 +40,7 @@ namespace Harris.Web.App_Start {
         kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
         kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
         kernel.Bind<ICapabilityRepository>().To<FakeCapabilityRepository>();
+        kernel.Bind<ICompanyRepository>().To<FakeCompanyRepository>();
 
         RegisterServices(kernel);
         return kernel;

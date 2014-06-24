@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Harris.Core.Data {
   public interface ICapabilityRepository {
-    ICollection<Category> Get();
+    ICollection<CapabilityCategory> Get();
   }
 
   public class FakeCapabilityRepository : ICapabilityRepository {
-    public ICollection<Category> Get() {
-      var items = new List<Category>();
-      items.AddRange(new List<Category> { 
-        new Category { 
+    public ICollection<CapabilityCategory> Get() {
+      var items = new List<CapabilityCategory>();
+      items.AddRange(new List<CapabilityCategory> { 
+        new CapabilityCategory { 
           Id  = 1, 
           Name = "Information Assurance", 
           Capabilities = new List<Capability> {
@@ -35,7 +35,7 @@ namespace Harris.Core.Data {
               Name = "Physical Security"
             }
         }},
-        new Category { 
+        new CapabilityCategory { 
           Id  = 2, 
           Name = "IT Services", 
           Capabilities = new List<Capability> {
