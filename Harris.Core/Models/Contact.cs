@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Harris.Core.Models {
   public class Contact {
+    public int Id { get; set; }
     public string Name { get; set; }
     public ICollection<string> PhoneNumbers { get; set; }
   }

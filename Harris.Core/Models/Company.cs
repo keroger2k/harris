@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Harris.Core.Models {
   public class Company {
+    public int Id { get; set; }
     public string Name { get; set; }
 
-    public ICollection<Contract> Contracts { get; set; }
-    public ICollection<Capability> Capabilities { get; set; }
+    public virtual ICollection<Contract> Contracts { get; set; }
+    public virtual ICollection<Capability> Capabilities { get; set; }
   }
 }

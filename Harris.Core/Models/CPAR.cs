@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Harris.Core.Models {
   public class CPAR {
+    public int Id { get; set; }
     public Criteria Name { get; set; }
     public Rating Score { get; set; }
 
