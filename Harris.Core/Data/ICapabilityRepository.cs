@@ -10,6 +10,14 @@ namespace Harris.Core.Data {
     ICollection<CapabilityCategory> Get();
   }
 
+  public class CapabilityRepository : ICapabilityRepository {
+    public ICollection<CapabilityCategory> Get() {
+      var db = new DatabaseContext();
+      return db.Categories.ToList();
+    }
+  }
+
+
   public class FakeCapabilityRepository : ICapabilityRepository {
     public ICollection<CapabilityCategory> Get() {
       var items = new List<CapabilityCategory>();
