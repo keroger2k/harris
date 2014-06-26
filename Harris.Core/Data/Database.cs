@@ -15,7 +15,6 @@ namespace Harris.Core.Data {
     }
     public DbSet<Company> Companies { get; set; }
     public DbSet<Contract> Contracts { get; set; }
-    public DbSet<Contact> Contacts { get; set; }
     public DbSet<Capability> Capabilities { get; set; }
     public DbSet<CapabilityCategory> Categories { get; set; }
     public DbSet<CPAR> CPARs { get; set; }

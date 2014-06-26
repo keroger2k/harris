@@ -50,7 +50,7 @@
 </div>
 
 <script type="text/template" id="matrix-result-template">
-    <div class="row project status-active">
+    <div class="row project status-{{CssClass}}">
         <div class="col-md-4">
             <h2>{{Contract.Name}}</h2>
             <ul class="details">
@@ -59,7 +59,7 @@
                     <span>{{Contract.Prime}}</span></li>
                 <li>
                     <label>Customer: </label>
-                    <span>{{Contract.Customer.Name}}</span></li>
+                    <span>{{Contract.Customer}}</span></li>
                 <li>
                     <label>Contract #: </label>
                     <span>{{Contract.ContractNumber}}</span></li>
@@ -71,7 +71,7 @@
                     <span>{{Contract.ContractVehicle}}</span></li>
                 <li>
                     <label>Contract Manager: </label>
-                    <span>{{Contract.ContractManager.Name}}</span></li>
+                    <span>{{Contract.Name}}</span></li>
             </ul>
         </div>
         <div class="col-md-8">

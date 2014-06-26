@@ -37,12 +37,26 @@ namespace Harris.Web.Controllers {
         foreach (var c in results) {
           var r = new MatrixCalculator(c, item);
           list.Add(new MatrixViewModel {
-            Contract = c,
+            Contract = new Contract {
+              ContractManager = r.Contract.ContractManager,
+              Name = r.Contract.Name,
+              Id = r.Contract.Id,
+              ContractNumber = r.Contract.ContractNumber,
+              ContractVehicle = r.Contract.ContractVehicle,
+              Customer = r.Contract.Customer,
+              Description = r.Contract.Description,
+              Start = r.Contract.Start,
+              End = r.Contract.End,
+              Prime = r.Contract.Prime,
+              TaskOrder = r.Contract.TaskOrder,
+              ProgramManager = r.Contract.ProgramManager,
+            },
             CategoryMatch = r.GetCategoryMatch(),
             CPARScore = r.GetCPAR(),
             BestMatch = r.GetBestMatch(),
             StartDate = r.Contract.Start.ToString("MM/dd/yyyy"),
             EndDate = r.Contract.End.ToString("MM/dd/yyyy"),
+            CssClass = MatrixViewModel.DetermineContractStatus(r.Contract.End)
           });
         }
       }

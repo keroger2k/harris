@@ -63,7 +63,6 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Capability.cs" />
     <Compile Include="Models\Company.cs" />
-    <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Contract.cs" />
     <Compile Include="Models\CPAR.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
