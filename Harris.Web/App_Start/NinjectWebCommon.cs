@@ -47,6 +47,7 @@ namespace Harris.Web.App_Start
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
                 kernel.Bind<ICapabilityRepository>().To<CapabilityRepository>();
                 kernel.Bind<ICompanyRepository>().To<CompanyRepository>();
+                kernel.Bind<IContractRepository>().To<ContractRepository>();
 
                 RegisterServices(kernel);
                 return kernel;

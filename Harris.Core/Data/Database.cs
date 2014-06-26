@@ -18,5 +18,7 @@ namespace Harris.Core.Data {
     public DbSet<Capability> Capabilities { get; set; }
     public DbSet<CapabilityCategory> Categories { get; set; }
     public DbSet<CPAR> CPARs { get; set; }
+
+    
   }
 }

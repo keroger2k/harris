@@ -27,9 +27,6 @@ namespace Harris.Core.Migrations {
       //create company
       context.Companies.AddOrUpdate(c => c.Name, harris);
 
-      //add capabilities to company
-      foreach (var item in context.Capabilities) { harris.Capabilities.Add(item); }
-
       //add contracts to harris
       foreach (var item in GetContracts()) { harris.Contracts.Add(item); }
 
@@ -37,23 +34,23 @@ namespace Harris.Core.Migrations {
       context.SaveChanges();
 
       //Add capabilities to FAA
-      var faa = context.Contracts.Single(c => c.Name.Equals("FAA FTI", StringComparison.OrdinalIgnoreCase));
+      var faa = harris.Contracts.Single(c => c.Name.Equals("FAA FTI", StringComparison.OrdinalIgnoreCase));
       foreach (var item in GetFAAFTICaps(context)) { faa.Capabilities.Add(item); }
 
       //Add capabilities to NMCI
-      var NMCI = context.Contracts.Single(c => c.Name.Equals("NMCI", StringComparison.OrdinalIgnoreCase));
+      var NMCI = harris.Contracts.Single(c => c.Name.Equals("NMCI", StringComparison.OrdinalIgnoreCase));
       foreach (var item in GetNMCI(context)) { NMCI.Capabilities.Add(item); }
 
       //Add capabilities to NMCI/CoSC
-      var CoSC = context.Contracts.Single(c => c.Name.Equals("NMCI/CoSC", StringComparison.OrdinalIgnoreCase));
+      var CoSC = harris.Contracts.Single(c => c.Name.Equals("NMCI/CoSC", StringComparison.OrdinalIgnoreCase));
       foreach (var item in GetNMCI(context)) { CoSC.Capabilities.Add(item); }
 
       //Add capabilities to NRO
-      var NRO = context.Contracts.Single(c => c.Name.Equals("NRO Patriot", StringComparison.OrdinalIgnoreCase));
+      var NRO = harris.Contracts.Single(c => c.Name.Equals("NRO Patriot", StringComparison.OrdinalIgnoreCase));
       foreach (var item in GetNRO(context)) { NRO.Capabilities.Add(item); }
 
       //Add capabilities to DeCA
-      var DeCA = context.Contracts.Single(c => c.Name.Equals("DeCA", StringComparison.OrdinalIgnoreCase));
+      var DeCA = harris.Contracts.Single(c => c.Name.Equals("DeCA", StringComparison.OrdinalIgnoreCase));
       foreach (var item in GetDeCA(context)) { DeCA.Capabilities.Add(item); }
 
       //save

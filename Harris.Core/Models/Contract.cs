@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Harris.Core.Models {
   public class Contract {
+    
     public Contract() {
       this.CPARs = new List<CPAR>();
       this.Capabilities = new List<Capability>();
     }
+
     public int Id { get; set; }
     public string Name { get; set; }
     public bool Prime { get; set; }

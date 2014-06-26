@@ -51,8 +51,8 @@
 
 <script type="text/template" id="matrix-result-template">
     <div class="row project status-{{CssClass}}">
-        <div class="col-md-4">
-            <h2>{{Contract.Name}}</h2>
+        <div class="col-md-4 col-sm-6">
+            <h2><a href="#" data-id="{{Contract.Id}}">{{Contract.Name}}</a></h2>
             <ul class="details">
                 <li>
                     <label>Sub: </label>
@@ -74,7 +74,7 @@
                     <span>{{Contract.Name}}</span></li>
             </ul>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 col-sm-6">
             <div class="row">
                 <div class="project-timeline-container">
                     <span class="project-timeline">
