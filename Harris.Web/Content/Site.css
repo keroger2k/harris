@@ -2,6 +2,15 @@
     margin-left: 20px;
 }
 
+div.cpars ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+div.cpars div.progress {
+    margin-bottom: 3px;
+}
 div.project {
     padding: 10px;
 }

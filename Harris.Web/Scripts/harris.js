@@ -5,7 +5,7 @@ Harris.updateCapabilities = function (item) {
     
     var xhr = $.ajax({
         type: 'POST',
-        url: '/home/UpdateCapabilitiesMatrix',
+        url: '/home/GetCapabilitiesMatrix',
         contentType: 'application/json',
         data: JSON.stringify({ item: item }),
         success: function (data) {

@@ -25,7 +25,7 @@ namespace Harris.Web.Controllers {
       return View(items);
     }
 
-    public ActionResult UpdateCapabilitiesMatrix(IEnumerable<Capability> item) {
+    public ActionResult GetCapabilitiesMatrix(IEnumerable<Capability> item) {
 
       //Get a single company; Most likely Harris.
       var company = _companyRepo.Get();

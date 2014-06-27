@@ -10,6 +10,7 @@ namespace Harris.Core.Models {
     public Contract() {
       this.CPARs = new List<CPAR>();
       this.Capabilities = new List<Capability>();
+      this.PastPerformances = new List<PastPerformance>();
     }
 
     public int Id { get; set; }
@@ -28,5 +29,6 @@ namespace Harris.Core.Models {
 
     public virtual ICollection<CPAR> CPARs { get; set; }
     public virtual ICollection<Capability> Capabilities { get; set; }
+    public virtual ICollection<PastPerformance> PastPerformances { get; set; }
   }
 }

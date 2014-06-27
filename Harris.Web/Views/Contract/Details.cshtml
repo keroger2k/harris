@@ -1,0 +1,158 @@
+﻿@model Harris.Web.Controllers.ContractDetailsViewModel
+
+@{
+    ViewBag.Title = string.Format("{0} Details", Model.Contract.Name);
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4 col-md-3 sidebar">
+            @for (int i = 0; i < Model.Categories.Count(); i++) {
+                var category = Model.Categories.ElementAt(i);
+                <div class="panel-group" id="accordion-@i">
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse-@i">@category.Name
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse-@i" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <ul class="nav nav-sidebar">
+                                    @foreach (var capability in category.Capabilities) {
+                                        <li>
+                                            <div class="category">
+                                                <input type="checkbox" class="capability" data-id="@capability.Id" @(Model.Contract.Capabilities.Any(c => c.Id == capability.Id) ? "checked='checked'" : "") disabled/>
+                                                @capability.Name
+                                            </div>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>}
+        </div>
+        <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
+
+            <div class="jumbotron">
+                <div class="container">
+                    <h1>@Html.DisplayFor(model => model.Contract.Name)</h1>
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <ul>
+                                <li>
+                                    @Html.DisplayFor(model => model.Contract.Prime)
+                                    @Html.DisplayNameFor(model => model.Contract.Prime)
+                                </li>
+                                <li>
+                                    @Html.DisplayNameFor(model => model.Contract.ContractNumber)
+                                    @Html.DisplayFor(model => model.Contract.ContractNumber)
+                                </li>
+                                <li>
+                                    @Html.DisplayNameFor(model => model.Contract.TaskOrder)
+                                    @Html.DisplayFor(model => model.Contract.TaskOrder)
+                                </li>
+                            </ul>
+
+                        </div>
+
+                        <div class="col-md-4">
+                            <ul>
+                                <li>
+                                    @Html.DisplayNameFor(model => model.Contract.ContractVehicle)
+                                    @Html.DisplayFor(model => model.Contract.ContractVehicle)
+
+                                </li>
+                                <li>
+                                    @Html.DisplayNameFor(model => model.Contract.Customer)
+                                    @Html.DisplayFor(model => model.Contract.Customer)
+                                </li>
+                                <li>
+                                    @Html.DisplayNameFor(model => model.Contract.ProgramManager)
+                                    @Html.DisplayFor(model => model.Contract.ProgramManager)
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-4">
+                            <ul>
+                                <li>
+                                    @Html.DisplayNameFor(model => model.Contract.Start)
+                                    @Html.DisplayFor(model => model.Contract.Start)
+
+
+                                </li>
+                                <li>
+                                    @Html.DisplayNameFor(model => model.Contract.End)
+                                    @Html.DisplayFor(model => model.Contract.End)
+                                </li>
+                                <li>
+                                    @Html.DisplayNameFor(model => model.Contract.ContractManager)
+                                    @Html.DisplayFor(model => model.Contract.ContractManager)
+                                </li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">CPARs</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="cpars">
+                        <ul>
+                            @foreach (var cpar in Model.Contract.CPARs) {
+                        
+                        
+                                <li>@cpar.Name.ToString().Replace('_', ' ') -- @cpar.Score
+                                    <div class="progress">
+                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="@((int)cpar.Score)" aria-valuemin="0" aria-valuemax="5" style="width: @(((int)cpar.Score / (float)5) * 100)%">
+                                            <span class="sr-only">40% Complete (success)</span>
+                                        </div>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Past Performance</h3>
+                </div>
+                <div class="panel-body">
+                    @foreach (var cap in Model.Contract.PastPerformances) {
+                        <h4>@cap.Capability.Name</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eleifend tristique nunc, at ornare nulla egestas ac. Mauris aliquet lacus vitae dui aliquet tempor. Maecenas vestibulum metus porttitor, feugiat massa et, sagittis justo. Maecenas sit amet lectus velit. Duis elementum justo nec suscipit vestibulum. Donec vulputate, neque id aliquet bibendum, dui sapien volutpat lorem, ut fringilla ipsum est a odio. Nulla aliquam sagittis elementum. Etiam eleifend interdum libero, vitae pulvinar risus adipiscing non. Vestibulum eget mattis velit. Sed ultricies ac eros at dapibus. Nunc malesuada cursus nisl, eu tristique ligula pharetra vitae. Mauris at rutrum sapien, a pellentesque leo.
+
+In in magna blandit, egestas sapien nec, aliquet libero. Pellentesque nibh eros, vehicula ut massa non, tristique sodales mi. Sed tellus augue, ullamcorper sit amet nisl nec, scelerisque vehicula erat. Fusce eu metus non enim vehicula viverra. Sed et eros nec libero condimentum luctus. Curabitur bibendum commodo volutpat. Morbi varius ipsum sed neque dictum, euismod tristique quam molestie. Proin leo velit, blandit sit amet elit tincidunt, laoreet feugiat enim. Phasellus elementum, magna sit amet venenatis tincidunt, orci nunc molestie tellus, id lacinia arcu lorem interdum felis.
+                        </p>
+                    }
+                </div>
+            </div>
+
+
+
+            <div class="past-performance">
+            </div>
+
+
+        </div>
+    </div>
+</div>
