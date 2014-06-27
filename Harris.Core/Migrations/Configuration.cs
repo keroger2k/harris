@@ -36,7 +36,6 @@ namespace Harris.Core.Migrations {
       //Add capabilities to FAA
       var faa = harris.Contracts.Single(c => c.Name.Equals("FAA FTI", StringComparison.OrdinalIgnoreCase));
       foreach (var item in GetFAAFTICaps(context)) { 
-        faa.Capabilities.Add(item);
         faa.PastPerformances.Add(new PastPerformance {
           Capability = item,
           Description = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eleifend tristique nunc, at ornare nulla egestas ac. Mauris aliquet lacus vitae dui aliquet tempor. Maecenas vestibulum metus porttitor, feugiat massa et, sagittis justo. Maecenas sit amet lectus velit. Duis elementum justo nec suscipit vestibulum. Donec vulputate, neque id aliquet bibendum, dui sapien volutpat lorem, ut fringilla ipsum est a odio. Nulla aliquam sagittis elementum. Etiam eleifend interdum libero, vitae pulvinar risus adipiscing non. Vestibulum eget mattis velit. Sed ultricies ac eros at dapibus. Nunc malesuada cursus nisl, eu tristique ligula pharetra vitae. Mauris at rutrum sapien, a pellentesque leo."
@@ -46,7 +45,6 @@ namespace Harris.Core.Migrations {
       //Add capabilities to NMCI
       var NMCI = harris.Contracts.Single(c => c.Name.Equals("NMCI", StringComparison.OrdinalIgnoreCase));
       foreach (var item in GetNMCI(context)) { 
-        NMCI.Capabilities.Add(item);
         NMCI.PastPerformances.Add(new PastPerformance {
           Capability = item,
           Description = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eleifend tristique nunc, at ornare nulla egestas ac. Mauris aliquet lacus vitae dui aliquet tempor. Maecenas vestibulum metus porttitor, feugiat massa et, sagittis justo. Maecenas sit amet lectus velit. Duis elementum justo nec suscipit vestibulum. Donec vulputate, neque id aliquet bibendum, dui sapien volutpat lorem, ut fringilla ipsum est a odio. Nulla aliquam sagittis elementum. Etiam eleifend interdum libero, vitae pulvinar risus adipiscing non. Vestibulum eget mattis velit. Sed ultricies ac eros at dapibus. Nunc malesuada cursus nisl, eu tristique ligula pharetra vitae. Mauris at rutrum sapien, a pellentesque leo."
@@ -56,7 +54,6 @@ namespace Harris.Core.Migrations {
       //Add capabilities to NMCI/CoSC
       var CoSC = harris.Contracts.Single(c => c.Name.Equals("NMCI/CoSC", StringComparison.OrdinalIgnoreCase));
       foreach (var item in GetNMCI(context)) { 
-        CoSC.Capabilities.Add(item);
         CoSC.PastPerformances.Add(new PastPerformance {
           Capability = item,
           Description = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eleifend tristique nunc, at ornare nulla egestas ac. Mauris aliquet lacus vitae dui aliquet tempor. Maecenas vestibulum metus porttitor, feugiat massa et, sagittis justo. Maecenas sit amet lectus velit. Duis elementum justo nec suscipit vestibulum. Donec vulputate, neque id aliquet bibendum, dui sapien volutpat lorem, ut fringilla ipsum est a odio. Nulla aliquam sagittis elementum. Etiam eleifend interdum libero, vitae pulvinar risus adipiscing non. Vestibulum eget mattis velit. Sed ultricies ac eros at dapibus. Nunc malesuada cursus nisl, eu tristique ligula pharetra vitae. Mauris at rutrum sapien, a pellentesque leo."
@@ -66,7 +63,6 @@ namespace Harris.Core.Migrations {
       //Add capabilities to NRO
       var NRO = harris.Contracts.Single(c => c.Name.Equals("NRO Patriot", StringComparison.OrdinalIgnoreCase));
       foreach (var item in GetNRO(context)) { 
-        NRO.Capabilities.Add(item);
         NRO.PastPerformances.Add(new PastPerformance {
           Capability = item,
           Description = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eleifend tristique nunc, at ornare nulla egestas ac. Mauris aliquet lacus vitae dui aliquet tempor. Maecenas vestibulum metus porttitor, feugiat massa et, sagittis justo. Maecenas sit amet lectus velit. Duis elementum justo nec suscipit vestibulum. Donec vulputate, neque id aliquet bibendum, dui sapien volutpat lorem, ut fringilla ipsum est a odio. Nulla aliquam sagittis elementum. Etiam eleifend interdum libero, vitae pulvinar risus adipiscing non. Vestibulum eget mattis velit. Sed ultricies ac eros at dapibus. Nunc malesuada cursus nisl, eu tristique ligula pharetra vitae. Mauris at rutrum sapien, a pellentesque leo."
@@ -78,7 +74,6 @@ namespace Harris.Core.Migrations {
       //Add capabilities to DeCA
       var DeCA = harris.Contracts.Single(c => c.Name.Equals("DeCA", StringComparison.OrdinalIgnoreCase));
       foreach (var item in GetDeCA(context)) {
-        DeCA.Capabilities.Add(item);
         DeCA.PastPerformances.Add(new PastPerformance {
           Capability = item,
           Description = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eleifend tristique nunc, at ornare nulla egestas ac. Mauris aliquet lacus vitae dui aliquet tempor. Maecenas vestibulum metus porttitor, feugiat massa et, sagittis justo. Maecenas sit amet lectus velit. Duis elementum justo nec suscipit vestibulum. Donec vulputate, neque id aliquet bibendum, dui sapien volutpat lorem, ut fringilla ipsum est a odio. Nulla aliquam sagittis elementum. Etiam eleifend interdum libero, vitae pulvinar risus adipiscing non. Vestibulum eget mattis velit. Sed ultricies ac eros at dapibus. Nunc malesuada cursus nisl, eu tristique ligula pharetra vitae. Mauris at rutrum sapien, a pellentesque leo."

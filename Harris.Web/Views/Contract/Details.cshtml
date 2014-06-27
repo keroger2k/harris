@@ -25,7 +25,7 @@
                                     @foreach (var capability in category.Capabilities) {
                                         <li>
                                             <div class="category">
-                                                <input type="checkbox" class="capability" data-id="@capability.Id" @(Model.Contract.Capabilities.Any(c => c.Id == capability.Id) ? "checked='checked'" : "") disabled/>
+                                                <input type="checkbox" class="capability" data-id="@capability.Id" @(Model.Contract.PastPerformances.Any(c => c.Capability.Id == capability.Id) ? "checked='checked'" : "") disabled/>
                                                 @capability.Name
                                             </div>
                                         </li>
@@ -39,25 +39,31 @@
         </div>
         <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
 
-            <div class="jumbotron">
+            <div class="jumbotron contract-details">
                 <div class="container">
-                    <h1>@Html.DisplayFor(model => model.Contract.Name)</h1>
+                    <h1>@Html.DisplayFor(model => model.Contract.Name)<a class="btn btn-primary btn-lg" style="margin-left: 50px" role="button">Edit Contract</a></h1>
                     <div class="row">
 
                         <div class="col-md-4">
                             <ul>
+
                                 <li>
-                                    @Html.DisplayFor(model => model.Contract.Prime)
-                                    @Html.DisplayNameFor(model => model.Contract.Prime)
+                                    <label>
+                                        @Html.DisplayFor(model => model.Contract.Prime)</label>
+                                    <span>@Html.DisplayNameFor(model => model.Contract.Prime)</span>
+                                </li>
+                                 <li>
+                                    <label>
+                                        @Html.DisplayNameFor(model => model.Contract.Start):</label>
+                                    <span>@Model.Contract.Start.ToShortDateString()</span>
+
                                 </li>
                                 <li>
-                                    @Html.DisplayNameFor(model => model.Contract.ContractNumber)
-                                    @Html.DisplayFor(model => model.Contract.ContractNumber)
+                                    <label>
+                                        @Html.DisplayNameFor(model => model.Contract.End):</label>
+                                    <span>@Model.Contract.End.ToShortDateString()</span>
                                 </li>
-                                <li>
-                                    @Html.DisplayNameFor(model => model.Contract.TaskOrder)
-                                    @Html.DisplayFor(model => model.Contract.TaskOrder)
-                                </li>
+                                
                             </ul>
 
                         </div>
@@ -65,17 +71,20 @@
                         <div class="col-md-4">
                             <ul>
                                 <li>
-                                    @Html.DisplayNameFor(model => model.Contract.ContractVehicle)
-                                    @Html.DisplayFor(model => model.Contract.ContractVehicle)
+                                    <label>
+                                        @Html.DisplayNameFor(model => model.Contract.ContractVehicle)</label>
+                                    <span>@Html.DisplayFor(model => model.Contract.ContractVehicle)</span>
 
                                 </li>
                                 <li>
-                                    @Html.DisplayNameFor(model => model.Contract.Customer)
-                                    @Html.DisplayFor(model => model.Contract.Customer)
+                                    <label>
+                                        @Html.DisplayNameFor(model => model.Contract.Customer)</label>
+                                    <span>@Html.DisplayFor(model => model.Contract.Customer)</span>
                                 </li>
                                 <li>
-                                    @Html.DisplayNameFor(model => model.Contract.ProgramManager)
-                                    @Html.DisplayFor(model => model.Contract.ProgramManager)
+                                    <label>
+                                        @Html.DisplayNameFor(model => model.Contract.ProgramManager)</label>
+                                    <span>@Html.DisplayFor(model => model.Contract.ProgramManager)</span>
                                 </li>
                             </ul>
                         </div>
@@ -83,18 +92,20 @@
                         <div class="col-md-4">
                             <ul>
                                 <li>
-                                    @Html.DisplayNameFor(model => model.Contract.Start)
-                                    @Html.DisplayFor(model => model.Contract.Start)
-
-
+                                    <label>
+                                        @Html.DisplayNameFor(model => model.Contract.ContractNumber)</label>
+                                    <span>@Html.DisplayFor(model => model.Contract.ContractNumber)</span>
                                 </li>
                                 <li>
-                                    @Html.DisplayNameFor(model => model.Contract.End)
-                                    @Html.DisplayFor(model => model.Contract.End)
+                                    <label>
+                                        @Html.DisplayNameFor(model => model.Contract.TaskOrder)</label>
+                                    <span>@Html.DisplayFor(model => model.Contract.TaskOrder)</span>
                                 </li>
+                               
                                 <li>
-                                    @Html.DisplayNameFor(model => model.Contract.ContractManager)
-                                    @Html.DisplayFor(model => model.Contract.ContractManager)
+                                    <label>
+                                        @Html.DisplayNameFor(model => model.Contract.ContractManager):</label>
+                                    <span>@Html.DisplayFor(model => model.Contract.ContractManager)</span>
                                 </li>
                             </ul>
                         </div>
@@ -102,35 +113,36 @@
 
                     </div>
 
-
+                    
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-7">
 
-
-
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">CPARs</h3>
-                </div>
-                <div class="panel-body">
-                    <div class="cpars">
-                        <ul>
-                            @foreach (var cpar in Model.Contract.CPARs) {
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Contractor Performance Assessment Reporting System (CPARS)</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="cpars">
+                                <ul>
+                                    @foreach (var cpar in Model.Contract.CPARs) {
                         
                         
-                                <li>@cpar.Name.ToString().Replace('_', ' ') -- @cpar.Score
-                                    <div class="progress">
-                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="@((int)cpar.Score)" aria-valuemin="0" aria-valuemax="5" style="width: @(((int)cpar.Score / (float)5) * 100)%">
-                                            <span class="sr-only">40% Complete (success)</span>
-                                        </div>
-                                    </div>
-                                </li>
-                            }
-                        </ul>
+                                        <li>@cpar.Name.ToString().Replace('_', ' ') <div style="float: right;" class="text-right"><strong>@cpar.Score.ToString().Replace('_', ' ')</strong></div>
+                                            <div class="progress">
+                                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="@((int)cpar.Score)" aria-valuemin="0" aria-valuemax="5" style="width: @(((int)cpar.Score / (float)5) * 100)%">
+                                                    <span class="sr-only">40% Complete (success)</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">Past Performance</h3>

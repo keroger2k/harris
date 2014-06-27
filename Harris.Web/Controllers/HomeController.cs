@@ -33,7 +33,7 @@ namespace Harris.Web.Controllers {
 
       //all companies with capabilities
       if (item != null) {
-        var results = company.Contracts.Where(e => e.Capabilities.Any(c => item.Select(d => d.Id).Contains(c.Id)));
+        var results = company.Contracts.Where(e => e.PastPerformances.Any(c => item.Select(d => d.Id).Contains(c.Capability.Id)));
         foreach (var c in results) {
           var r = new MatrixCalculator(c, item);
           list.Add(new MatrixViewModel {

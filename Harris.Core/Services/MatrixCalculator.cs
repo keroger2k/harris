@@ -17,7 +17,7 @@ namespace Harris.Core.Services {
     }
 
     public double GetCategoryMatch() {
-      var matchingCapabilities = Contract.Capabilities.Count(c => _capabilities.Select(d => d.Id).Contains(c.Id));
+      var matchingCapabilities = Contract.PastPerformances.Count(c => _capabilities.Select(d => d.Id).Contains(c.Capability.Id));
       return Math.Round((matchingCapabilities / (double)_capabilities.Count()) * 100, 2);
     }
 

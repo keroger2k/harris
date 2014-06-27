@@ -2,6 +2,20 @@
     margin-left: 20px;
 }
 
+div.contract-details ul  {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+div.contract-details ul li label {
+    font-weight: normal;
+}
+
+div.contract-details ul li span {
+    font-weight: bold;
+}
+
 div.cpars ul {
     list-style: none;
     margin: 0;
