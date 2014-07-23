@@ -7,12 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@ViewBag.Title</title>
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/jquery")
+@*    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/holder")
-    @Scripts.Render("~/bundles/harris")
+    @Scripts.Render("~/bundles/harris")*@
+    @Scripts.Render("~/bundles/modernizr")
     @RenderSection("scripts", required: false)
+    <script src="~/Scripts/jquery-2.1.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/holder.js"></script>
+    <script src="~/Scripts/mustache.js"></script>
+    <script src="~/Scripts/harris.js"></script>
+    <script src="~/Scripts/jquery-ui-1.10.4.min.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
