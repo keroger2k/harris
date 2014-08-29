@@ -1,9 +1,20 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harris.Web", "Harris.Web\Harris.Web.csproj", "{73EE50DF-D485-476A-9AF4-22D9F7AD3839}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harris.Core", "Harris.Core\Harris.Core.csproj", "{D7567B6A-F9D3-4B3B-B2E5-9AEB4976484E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harris.Core.Tests", "Harris.Core.Tests\Harris.Core.Tests.csproj", "{61088404-B5BB-47D5-8378-72EE36ED41FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{1CCBB16B-8BB2-48B8-BBA7-0788E75CE792}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +30,10 @@ Global
 		{D7567B6A-F9D3-4B3B-B2E5-9AEB4976484E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7567B6A-F9D3-4B3B-B2E5-9AEB4976484E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7567B6A-F9D3-4B3B-B2E5-9AEB4976484E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61088404-B5BB-47D5-8378-72EE36ED41FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61088404-B5BB-47D5-8378-72EE36ED41FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61088404-B5BB-47D5-8378-72EE36ED41FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61088404-B5BB-47D5-8378-72EE36ED41FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

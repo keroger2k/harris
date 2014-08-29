@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Harris.Core.Models.Capability">
+    <Position X="4.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Capability.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Harris.Core.Models.CapabilityCategory">
+    <Position X="7.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAEAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\CapabilityCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Harris.Core.Models.Company">
+    <Position X="5.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Models\Company.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Harris.Core.Models.Contract">
+    <Position X="2" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAMCAABAACAgAQAAUAAAAAQAAAABAAQAAgAAAAAAAAA=</HashCode>
+      <FileName>Models\Contract.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Harris.Core.Models.CPAR">
+    <Position X="3.75" Y="1" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Harris.Core.Models.CPAR.Criteria" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Models\CPAR.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="Harris.Core.Models.CPAR.Rating" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Models\CPAR.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAgAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\CPAR.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
