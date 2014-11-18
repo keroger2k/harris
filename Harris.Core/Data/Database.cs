@@ -13,13 +13,13 @@ namespace Harris.Core.Data {
       : base("DefaultConnection") {
 
     }
+
     public DbSet<Company> Companies { get; set; }
     public DbSet<Contract> Contracts { get; set; }
     public DbSet<Capability> Capabilities { get; set; }
     public DbSet<CapabilityCategory> Categories { get; set; }
     public DbSet<CPAR> CPARs { get; set; }
+    public DbSet<Report> Reports { get; set; }
     public DbSet<PastPerformance> PastPerformances { get; set; }
-
-    
   }
 }

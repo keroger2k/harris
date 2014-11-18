@@ -1,0 +1,135 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/HPRS/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+<div class="row">
+
+    <div class="col-sm-6">
+        <div class="chart-wrapper">
+            <div class="chart-title">
+                Chart Title
+            </div>
+            <div class="chart-stage">
+                <div id="chart-03" style="height: 400px"></div>
+            </div>
+            <div class="chart-notes">
+                *chart notes
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="chart-wrapper">
+            <div class="chart-title">
+                Impressions by country
+            </div>
+            <div class="chart-stage">
+                <div id="chart-05"></div>
+            </div>
+            <div class="chart-notes">
+                Notes go down here
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-sm-3">
+        <div class="chart-wrapper">
+            <img data-src="holder.js/100%x150/white">
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="chart-wrapper">
+            <img data-src="holder.js/100%x150/white">
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="chart-wrapper">
+            <img data-src="holder.js/100%x150/white">
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="chart-wrapper">
+            <img data-src="holder.js/100%x150/white">
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<script type="text/javascript">
+    google.load("visualization", "1", {
+        packages: ["corechart"]
+    });
+    google.setOnLoadCallback(drawVisualization);
+
+    function drawVisualization() {
+        // Some raw data (not necessarily accurate)
+        var data = google.visualization.arrayToDataTable([
+            ['Period', 'Task A', 'Task B', 'Task C', 'Task D', 'Task E', 'Target', 'Success Rate'],
+            ['HFY11-P04', 514, 54, 1308, 135, 2442, 98.5, 99.0],
+            ['HFY11-P05', 478, 52, 1356, 150, 2533, 98.5, 94.0],
+            ['HFY11-P06', 469, 53, 1486, 133, 2653, 98.5, 100.0],
+            ['HFY11-P07', 543, 47, 1397, 134, 2366, 98.5, 100.0],
+            ['HFY11-P08', 522, 54, 1473, 135, 2590, 98.5, 99.0],
+            ['HFY11-P09', 566, 54, 1473, 135, 2590, 98.5, 90.0],
+            ['HFY11-P10', 512, 54, 1473, 135, 2590, 98.5, 91.0],
+            ['HFY11-P11', 599, 54, 1473, 135, 2590, 98.5, 95.0],
+            ['HFY11-P12', 666, 54, 1473, 135, 2590, 98.5, 94.0],
+            ['HFY11-P13', 543, 54, 1473, 135, 2590, 98.5, 97.0],
+            ['HFY11-P14', 522, 54, 1473, 135, 2590, 98.5, 99.0]
+        ]);
+
+        var options = {
+            title: 'Harris QPI Chart Title',
+            legend: {
+                position: 'bottom',
+                textStyle: {
+                    color: 'blue',
+                    fontSize: 10
+                }
+            },
+            lineWidth: 2,
+            vAxes: [{
+                title: 'Left Axis Title',
+                textStyle: {
+                    color: 'red'
+                },
+                viewWindowMode: 'maximized'
+            },
+            {
+                title: 'Right Axis Title',
+                format: '#\'%\'',
+                gridlines: { color: '#333' },
+                textStyle: {
+                    color: 'red'
+                }
+            }
+            ],
+            hAxis: {
+                title: "",
+                slantedText: true
+            },
+            seriesType: "bars",
+            isStacked: true,
+            series: {
+                5: {
+                    targetAxisIndex: 1,
+                    type: "line"
+                },
+                6: {
+                    targetAxisIndex: 1,
+                    type: "line"
+                }
+            }
+        };
+
+        var chart = new google.visualization.ComboChart(document.getElementById('chart-03'));
+        chart.draw(data, options);
+    }
+</script>

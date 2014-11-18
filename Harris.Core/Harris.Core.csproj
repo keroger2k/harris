@@ -63,6 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\HPRSContext.cs" />
     <Compile Include="Data\IContractRepository.cs" />
     <Compile Include="Data\Database.cs" />
     <Compile Include="Data\ICompanyRepository.cs" />

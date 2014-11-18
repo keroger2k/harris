@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,9 +67,9 @@ namespace Harris.Core.Models
         {
             get
             {
-                return this.HumanErrorSev1Points +
-                       this.HumanErrorSev2Points +
-                       this.HumanErrorSev3Points;
+                return this.HumanErrorSev1Points * HumanErrorSev1Volume +
+                       this.HumanErrorSev2Points * HumanErrorSev2Volume +
+                       this.HumanErrorSev3Points * HumanErrorSev3Volume;
             }
         }
     }
@@ -89,5 +90,42 @@ namespace Harris.Core.Models
         }
 
         public virtual VolumeTasks Task { get; set; }
+    }
+
+    public class Tag
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+
+        public virtual ICollection<Status> Statuses { get; set; }
+
+    }
+
+    public class Employee
+    {
+        public string Id { get; set; }
+        public string Firstname { get; set; }
+        public string Lastname { get; set; }
+    }
+
+    public class StatusTag
+    {
+        public int TagId { get; set; }
+        public int StatusId { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("TagId: {0}, StatusId: {1}", this.TagId, this.StatusId);
+        }
+    }
+
+    public class Status
+    {
+        public int Id { get; set; }
+        public DateTime StatusDate { get; set; }
+        public bool Result { get; set; }
+
+        public virtual Employee Employee { get; set; }
+        public virtual ICollection<Tag> Tags { get; set; }
     }
 }
